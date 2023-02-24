@@ -48,6 +48,21 @@ namespace Structs
             }
         }
 
+        public int Ricerca()
+        {
+            int indice = -1;
+
+            for (int i = 0; i < dim; i++)
+            {
+                if (p[i].nome == nomeDaMod_textbox.Text)
+                {
+                    indice = i;
+                }
+            }
+
+            return indice;
+        }
+
 
 
 
@@ -76,19 +91,21 @@ namespace Structs
             }
         }
 
+
         private void modifica_button_Click(object sender, EventArgs e)
         {
-            if (int.Parse(posizioneMod_textbox.Text)>=0 && int.Parse(posizioneMod_textbox.Text)<dim)
+            int indice = Ricerca();
+            if ( indice >= 0)
             {
-                p[int.Parse(posizioneMod_textbox.Text)].nome = nuovoNome_textbox.Text;
-                p[int.Parse(posizioneMod_textbox.Text)].prezzo = float.Parse(nuovoNome_textbox.Text);
+                p[indice].nome = nuovoNome_textbox.Text;
+                p[indice].prezzo = float.Parse(nuovoPrezzo_textbox.Text);
                 Visualizza();
             }
             else
             {
-                MessageBox.Show("La posizione inserità non è valida");
+                MessageBox.Show("Non è stato trovato tale nome");
             }
-            
+
         }
     }
 }
