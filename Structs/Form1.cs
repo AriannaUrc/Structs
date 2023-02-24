@@ -39,6 +39,14 @@ namespace Structs
         {
             return "Nome: " + p.nome + "  Prezzo: " + p.prezzo.ToString();
         }
+        public void Visualizza()
+        {
+            output.Items.Clear();
+            for (int i = 0; i < dim; i++)
+            {
+                output.Items.Add(ProdString(p[i]));
+            }
+        }
 
 
 
@@ -52,30 +60,35 @@ namespace Structs
         {
             p[dim].nome = nome.Text;
             p[dim].prezzo = float.Parse(prezzo.Text);
-            output.Items.Clear();
             dim++;
-
-            for (int i = 0; i < dim; i++)
-            {
-                output.Items.Add(ProdString(p[i]));
-            }
-
+            Visualizza();
         }
         private void cancella_button_Click(object sender, EventArgs e)
         {
             if (dim > 0)
             {
                 dim--;
-                output.Items.Clear();
-                for (int i = 0; i < dim; i++)
-                {
-                    output.Items.Add(ProdString(p[i]));
-                }
+                Visualizza();
             }
             else
             {
                 MessageBox.Show("Non ci sono elementi da eliminare");
             }
+        }
+
+        private void modifica_button_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(posizioneMod_textbox.Text)>=0 && int.Parse(posizioneMod_textbox.Text)<dim)
+            {
+                p[int.Parse(posizioneMod_textbox.Text)].nome = nuovoNome_textbox.Text;
+                p[int.Parse(posizioneMod_textbox.Text)].prezzo = float.Parse(nuovoNome_textbox.Text);
+                Visualizza();
+            }
+            else
+            {
+                MessageBox.Show("La posizione inserità non è valida");
+            }
+            
         }
     }
 }

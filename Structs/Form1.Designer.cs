@@ -35,6 +35,13 @@
             this.salva_button = new System.Windows.Forms.Button();
             this.output = new System.Windows.Forms.ListView();
             this.cancella_button = new System.Windows.Forms.Button();
+            this.modifica_button = new System.Windows.Forms.Button();
+            this.posizioneMod_textbox = new System.Windows.Forms.TextBox();
+            this.posizioneMod_label = new System.Windows.Forms.Label();
+            this.nuovoNome_textbox = new System.Windows.Forms.TextBox();
+            this.nuovoNome_label = new System.Windows.Forms.Label();
+            this.nuovoPrezzo_textbox = new System.Windows.Forms.TextBox();
+            this.nuovoPrezzo_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nome
@@ -71,7 +78,7 @@
             // 
             // salva_button
             // 
-            this.salva_button.Location = new System.Drawing.Point(182, 205);
+            this.salva_button.Location = new System.Drawing.Point(179, 187);
             this.salva_button.Name = "salva_button";
             this.salva_button.Size = new System.Drawing.Size(75, 23);
             this.salva_button.TabIndex = 4;
@@ -92,7 +99,7 @@
             // 
             // cancella_button
             // 
-            this.cancella_button.Location = new System.Drawing.Point(182, 254);
+            this.cancella_button.Location = new System.Drawing.Point(37, 253);
             this.cancella_button.Name = "cancella_button";
             this.cancella_button.Size = new System.Drawing.Size(75, 23);
             this.cancella_button.TabIndex = 6;
@@ -100,11 +107,76 @@
             this.cancella_button.UseVisualStyleBackColor = true;
             this.cancella_button.Click += new System.EventHandler(this.cancella_button_Click);
             // 
+            // modifica_button
+            // 
+            this.modifica_button.Location = new System.Drawing.Point(37, 310);
+            this.modifica_button.Name = "modifica_button";
+            this.modifica_button.Size = new System.Drawing.Size(75, 23);
+            this.modifica_button.TabIndex = 7;
+            this.modifica_button.Text = "Modifica";
+            this.modifica_button.UseVisualStyleBackColor = true;
+            this.modifica_button.Click += new System.EventHandler(this.modifica_button_Click);
+            // 
+            // posizioneMod_textbox
+            // 
+            this.posizioneMod_textbox.Location = new System.Drawing.Point(135, 313);
+            this.posizioneMod_textbox.Name = "posizioneMod_textbox";
+            this.posizioneMod_textbox.Size = new System.Drawing.Size(61, 20);
+            this.posizioneMod_textbox.TabIndex = 8;
+            // 
+            // posizioneMod_label
+            // 
+            this.posizioneMod_label.AutoSize = true;
+            this.posizioneMod_label.Location = new System.Drawing.Point(144, 294);
+            this.posizioneMod_label.Name = "posizioneMod_label";
+            this.posizioneMod_label.Size = new System.Drawing.Size(52, 13);
+            this.posizioneMod_label.TabIndex = 9;
+            this.posizioneMod_label.Text = "Posizione";
+            // 
+            // nuovoNome_textbox
+            // 
+            this.nuovoNome_textbox.Location = new System.Drawing.Point(219, 313);
+            this.nuovoNome_textbox.Name = "nuovoNome_textbox";
+            this.nuovoNome_textbox.Size = new System.Drawing.Size(100, 20);
+            this.nuovoNome_textbox.TabIndex = 10;
+            // 
+            // nuovoNome_label
+            // 
+            this.nuovoNome_label.AutoSize = true;
+            this.nuovoNome_label.Location = new System.Drawing.Point(234, 294);
+            this.nuovoNome_label.Name = "nuovoNome_label";
+            this.nuovoNome_label.Size = new System.Drawing.Size(68, 13);
+            this.nuovoNome_label.TabIndex = 11;
+            this.nuovoNome_label.Text = "Nuovo nome";
+            // 
+            // nuovoPrezzo_textbox
+            // 
+            this.nuovoPrezzo_textbox.Location = new System.Drawing.Point(346, 312);
+            this.nuovoPrezzo_textbox.Name = "nuovoPrezzo_textbox";
+            this.nuovoPrezzo_textbox.Size = new System.Drawing.Size(100, 20);
+            this.nuovoPrezzo_textbox.TabIndex = 12;
+            // 
+            // nuovoPrezzo_label
+            // 
+            this.nuovoPrezzo_label.AutoSize = true;
+            this.nuovoPrezzo_label.Location = new System.Drawing.Point(361, 294);
+            this.nuovoPrezzo_label.Name = "nuovoPrezzo_label";
+            this.nuovoPrezzo_label.Size = new System.Drawing.Size(73, 13);
+            this.nuovoPrezzo_label.TabIndex = 13;
+            this.nuovoPrezzo_label.Text = "Nuovo prezzo";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nuovoPrezzo_label);
+            this.Controls.Add(this.nuovoPrezzo_textbox);
+            this.Controls.Add(this.nuovoNome_label);
+            this.Controls.Add(this.nuovoNome_textbox);
+            this.Controls.Add(this.posizioneMod_label);
+            this.Controls.Add(this.posizioneMod_textbox);
+            this.Controls.Add(this.modifica_button);
             this.Controls.Add(this.cancella_button);
             this.Controls.Add(this.output);
             this.Controls.Add(this.salva_button);
@@ -129,6 +201,13 @@
         private System.Windows.Forms.Button salva_button;
         private System.Windows.Forms.ListView output;
         private System.Windows.Forms.Button cancella_button;
+        private System.Windows.Forms.Button modifica_button;
+        private System.Windows.Forms.TextBox posizioneMod_textbox;
+        private System.Windows.Forms.Label posizioneMod_label;
+        private System.Windows.Forms.TextBox nuovoNome_textbox;
+        private System.Windows.Forms.Label nuovoNome_label;
+        private System.Windows.Forms.TextBox nuovoPrezzo_textbox;
+        private System.Windows.Forms.Label nuovoPrezzo_label;
     }
 }
 
