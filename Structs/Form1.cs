@@ -48,13 +48,13 @@ namespace Structs
             }
         }
 
-        public int Ricerca()
+        public int Ricerca(string ricerca)
         {
             int indice = -1;
 
             for (int i = 0; i < dim; i++)
             {
-                if (p[i].nome == nomeDaMod_textbox.Text)
+                if (p[i].nome == ricerca)
                 {
                     indice = i;
                 }
@@ -80,21 +80,28 @@ namespace Structs
         }
         private void cancella_button_Click(object sender, EventArgs e)
         {
-            if (dim > 0)
+            int indice = Ricerca(nomeDaCancellare_textbox.Text);
+            if (indice >= 0)
             {
+                for (int i = indice; i < dim-1; i++)
+                {
+                    p[indice].nome = p[indice+1].nome;
+                    p[indice].prezzo = p[indice+1].prezzo;
+                }
                 dim--;
+
                 Visualizza();
             }
             else
             {
-                MessageBox.Show("Non ci sono elementi da eliminare");
+                MessageBox.Show("Non è stato trovato tale elemento");
             }
         }
 
 
         private void modifica_button_Click(object sender, EventArgs e)
         {
-            int indice = Ricerca();
+            int indice = Ricerca(nomeDaMod_textbox.Text);
             if ( indice >= 0)
             {
                 p[indice].nome = nuovoNome_textbox.Text;
@@ -103,7 +110,7 @@ namespace Structs
             }
             else
             {
-                MessageBox.Show("Non è stato trovato tale nome");
+                MessageBox.Show("Non è stato trovato tale elemento");
             }
 
         }
