@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.VisualBasic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -63,6 +64,27 @@ namespace Structs
             return indice;
         }
 
+        public float SommaPrezzi()
+        {
+            float somma = 0;
+
+            for (int i = 0; i < dim; i++)
+            {
+                somma = somma + p[i].prezzo;
+            }
+
+            return somma;
+        }
+
+
+        public void Sconto()
+        {
+            for (int i = 0; i < dim; i++)
+            {
+                p[i].prezzo = p[i].prezzo*(100 - int.Parse(sconto_input.Text))/100;
+            }
+        }
+
 
 
 
@@ -98,6 +120,7 @@ namespace Structs
             }
         }
 
+        
 
         private void modifica_button_Click(object sender, EventArgs e)
         {
@@ -113,6 +136,24 @@ namespace Structs
                 MessageBox.Show("Non è stato trovato tale elemento");
             }
 
+        }
+
+        private void sconto_button_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(sconto_input.Text)>=0&& int.Parse(sconto_input.Text) <= 100)
+            {
+                Sconto();
+                Visualizza();
+            }
+            else
+            {
+                MessageBox.Show("Percentuale non accetttabile");
+            }
+        }
+
+        private void sommaPrezzi_button_Click(object sender, EventArgs e)
+        {
+            output.Items.Add("La somma dei prezzi è: "+SommaPrezzi().ToString());
         }
     }
 }

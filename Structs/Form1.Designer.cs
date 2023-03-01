@@ -44,18 +44,22 @@
             this.nuovoPrezzo_label = new System.Windows.Forms.Label();
             this.nomeDaCancellare_textbox = new System.Windows.Forms.TextBox();
             this.nomeDaCancellare_label = new System.Windows.Forms.Label();
+            this.sconto_button = new System.Windows.Forms.Button();
+            this.sconto_input = new System.Windows.Forms.TextBox();
+            this.sconto_label = new System.Windows.Forms.Label();
+            this.sommaPrezzi_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nome
             // 
-            this.nome.Location = new System.Drawing.Point(179, 106);
+            this.nome.Location = new System.Drawing.Point(140, 42);
             this.nome.Name = "nome";
-            this.nome.Size = new System.Drawing.Size(100, 20);
+            this.nome.Size = new System.Drawing.Size(98, 20);
             this.nome.TabIndex = 0;
             // 
             // prezzo
             // 
-            this.prezzo.Location = new System.Drawing.Point(317, 106);
+            this.prezzo.Location = new System.Drawing.Point(246, 42);
             this.prezzo.Name = "prezzo";
             this.prezzo.Size = new System.Drawing.Size(100, 20);
             this.prezzo.TabIndex = 1;
@@ -63,7 +67,7 @@
             // nome_label
             // 
             this.nome_label.AutoSize = true;
-            this.nome_label.Location = new System.Drawing.Point(176, 73);
+            this.nome_label.Location = new System.Drawing.Point(157, 26);
             this.nome_label.Name = "nome_label";
             this.nome_label.Size = new System.Drawing.Size(35, 13);
             this.nome_label.TabIndex = 2;
@@ -72,7 +76,7 @@
             // prezzo_label
             // 
             this.prezzo_label.AutoSize = true;
-            this.prezzo_label.Location = new System.Drawing.Point(314, 73);
+            this.prezzo_label.Location = new System.Drawing.Point(272, 26);
             this.prezzo_label.Name = "prezzo_label";
             this.prezzo_label.Size = new System.Drawing.Size(39, 13);
             this.prezzo_label.TabIndex = 3;
@@ -80,9 +84,9 @@
             // 
             // salva_button
             // 
-            this.salva_button.Location = new System.Drawing.Point(179, 143);
+            this.salva_button.Location = new System.Drawing.Point(30, 42);
             this.salva_button.Name = "salva_button";
-            this.salva_button.Size = new System.Drawing.Size(75, 23);
+            this.salva_button.Size = new System.Drawing.Size(81, 23);
             this.salva_button.TabIndex = 4;
             this.salva_button.Text = "Salva";
             this.salva_button.UseVisualStyleBackColor = true;
@@ -101,9 +105,9 @@
             // 
             // cancella_button
             // 
-            this.cancella_button.Location = new System.Drawing.Point(37, 253);
+            this.cancella_button.Location = new System.Drawing.Point(30, 110);
             this.cancella_button.Name = "cancella_button";
-            this.cancella_button.Size = new System.Drawing.Size(75, 23);
+            this.cancella_button.Size = new System.Drawing.Size(81, 23);
             this.cancella_button.TabIndex = 6;
             this.cancella_button.Text = "Cancella";
             this.cancella_button.UseVisualStyleBackColor = true;
@@ -111,9 +115,9 @@
             // 
             // modifica_button
             // 
-            this.modifica_button.Location = new System.Drawing.Point(37, 310);
+            this.modifica_button.Location = new System.Drawing.Point(30, 167);
             this.modifica_button.Name = "modifica_button";
-            this.modifica_button.Size = new System.Drawing.Size(75, 23);
+            this.modifica_button.Size = new System.Drawing.Size(81, 23);
             this.modifica_button.TabIndex = 7;
             this.modifica_button.Text = "Modifica";
             this.modifica_button.UseVisualStyleBackColor = true;
@@ -121,15 +125,15 @@
             // 
             // nomeDaMod_textbox
             // 
-            this.nomeDaMod_textbox.Location = new System.Drawing.Point(135, 313);
+            this.nomeDaMod_textbox.Location = new System.Drawing.Point(140, 170);
             this.nomeDaMod_textbox.Name = "nomeDaMod_textbox";
-            this.nomeDaMod_textbox.Size = new System.Drawing.Size(110, 20);
+            this.nomeDaMod_textbox.Size = new System.Drawing.Size(98, 20);
             this.nomeDaMod_textbox.TabIndex = 8;
             // 
             // nomeDaMod_label
             // 
             this.nomeDaMod_label.AutoSize = true;
-            this.nomeDaMod_label.Location = new System.Drawing.Point(144, 294);
+            this.nomeDaMod_label.Location = new System.Drawing.Point(137, 151);
             this.nomeDaMod_label.Name = "nomeDaMod_label";
             this.nomeDaMod_label.Size = new System.Drawing.Size(101, 13);
             this.nomeDaMod_label.TabIndex = 9;
@@ -137,7 +141,7 @@
             // 
             // nuovoNome_textbox
             // 
-            this.nuovoNome_textbox.Location = new System.Drawing.Point(253, 313);
+            this.nuovoNome_textbox.Location = new System.Drawing.Point(246, 170);
             this.nuovoNome_textbox.Name = "nuovoNome_textbox";
             this.nuovoNome_textbox.Size = new System.Drawing.Size(100, 20);
             this.nuovoNome_textbox.TabIndex = 10;
@@ -145,7 +149,7 @@
             // nuovoNome_label
             // 
             this.nuovoNome_label.AutoSize = true;
-            this.nuovoNome_label.Location = new System.Drawing.Point(267, 294);
+            this.nuovoNome_label.Location = new System.Drawing.Point(260, 151);
             this.nuovoNome_label.Name = "nuovoNome_label";
             this.nuovoNome_label.Size = new System.Drawing.Size(68, 13);
             this.nuovoNome_label.TabIndex = 11;
@@ -153,7 +157,7 @@
             // 
             // nuovoPrezzo_textbox
             // 
-            this.nuovoPrezzo_textbox.Location = new System.Drawing.Point(364, 312);
+            this.nuovoPrezzo_textbox.Location = new System.Drawing.Point(357, 169);
             this.nuovoPrezzo_textbox.Name = "nuovoPrezzo_textbox";
             this.nuovoPrezzo_textbox.Size = new System.Drawing.Size(70, 20);
             this.nuovoPrezzo_textbox.TabIndex = 12;
@@ -161,7 +165,7 @@
             // nuovoPrezzo_label
             // 
             this.nuovoPrezzo_label.AutoSize = true;
-            this.nuovoPrezzo_label.Location = new System.Drawing.Point(361, 294);
+            this.nuovoPrezzo_label.Location = new System.Drawing.Point(354, 151);
             this.nuovoPrezzo_label.Name = "nuovoPrezzo_label";
             this.nuovoPrezzo_label.Size = new System.Drawing.Size(73, 13);
             this.nuovoPrezzo_label.TabIndex = 13;
@@ -169,25 +173,65 @@
             // 
             // nomeDaCancellare_textbox
             // 
-            this.nomeDaCancellare_textbox.Location = new System.Drawing.Point(135, 253);
+            this.nomeDaCancellare_textbox.Location = new System.Drawing.Point(140, 112);
             this.nomeDaCancellare_textbox.Name = "nomeDaCancellare_textbox";
-            this.nomeDaCancellare_textbox.Size = new System.Drawing.Size(110, 20);
+            this.nomeDaCancellare_textbox.Size = new System.Drawing.Size(100, 20);
             this.nomeDaCancellare_textbox.TabIndex = 14;
             // 
             // nomeDaCancellare_label
             // 
             this.nomeDaCancellare_label.AutoSize = true;
-            this.nomeDaCancellare_label.Location = new System.Drawing.Point(143, 227);
+            this.nomeDaCancellare_label.Location = new System.Drawing.Point(138, 87);
             this.nomeDaCancellare_label.Name = "nomeDaCancellare_label";
             this.nomeDaCancellare_label.Size = new System.Drawing.Size(102, 13);
             this.nomeDaCancellare_label.TabIndex = 15;
             this.nomeDaCancellare_label.Text = "Nome da cancellare";
+            // 
+            // sconto_button
+            // 
+            this.sconto_button.Location = new System.Drawing.Point(30, 230);
+            this.sconto_button.Name = "sconto_button";
+            this.sconto_button.Size = new System.Drawing.Size(81, 23);
+            this.sconto_button.TabIndex = 16;
+            this.sconto_button.Text = "Sconta";
+            this.sconto_button.UseVisualStyleBackColor = true;
+            this.sconto_button.Click += new System.EventHandler(this.sconto_button_Click);
+            // 
+            // sconto_input
+            // 
+            this.sconto_input.Location = new System.Drawing.Point(141, 230);
+            this.sconto_input.Name = "sconto_input";
+            this.sconto_input.Size = new System.Drawing.Size(110, 20);
+            this.sconto_input.TabIndex = 17;
+            // 
+            // sconto_label
+            // 
+            this.sconto_label.AutoSize = true;
+            this.sconto_label.Location = new System.Drawing.Point(140, 214);
+            this.sconto_label.Name = "sconto_label";
+            this.sconto_label.Size = new System.Drawing.Size(111, 13);
+            this.sconto_label.TabIndex = 18;
+            this.sconto_label.Text = "Sconto in percentuale";
+            // 
+            // sommaPrezzi_button
+            // 
+            this.sommaPrezzi_button.Location = new System.Drawing.Point(30, 289);
+            this.sommaPrezzi_button.Name = "sommaPrezzi_button";
+            this.sommaPrezzi_button.Size = new System.Drawing.Size(81, 23);
+            this.sommaPrezzi_button.TabIndex = 19;
+            this.sommaPrezzi_button.Text = "Somma prezzi";
+            this.sommaPrezzi_button.UseVisualStyleBackColor = true;
+            this.sommaPrezzi_button.Click += new System.EventHandler(this.sommaPrezzi_button_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.sommaPrezzi_button);
+            this.Controls.Add(this.sconto_label);
+            this.Controls.Add(this.sconto_input);
+            this.Controls.Add(this.sconto_button);
             this.Controls.Add(this.nomeDaCancellare_label);
             this.Controls.Add(this.nomeDaCancellare_textbox);
             this.Controls.Add(this.nuovoPrezzo_label);
@@ -230,6 +274,10 @@
         private System.Windows.Forms.Label nuovoPrezzo_label;
         private System.Windows.Forms.TextBox nomeDaCancellare_textbox;
         private System.Windows.Forms.Label nomeDaCancellare_label;
+        private System.Windows.Forms.Button sconto_button;
+        private System.Windows.Forms.TextBox sconto_input;
+        private System.Windows.Forms.Label sconto_label;
+        private System.Windows.Forms.Button sommaPrezzi_button;
     }
 }
 
