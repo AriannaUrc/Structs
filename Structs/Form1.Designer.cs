@@ -48,6 +48,8 @@
             this.sconto_input = new System.Windows.Forms.TextBox();
             this.sconto_label = new System.Windows.Forms.Label();
             this.sommaPrezzi_button = new System.Windows.Forms.Button();
+            this.salva_esterno_buton = new System.Windows.Forms.Button();
+            this.carica_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nome
@@ -223,11 +225,33 @@
             this.sommaPrezzi_button.UseVisualStyleBackColor = true;
             this.sommaPrezzi_button.Click += new System.EventHandler(this.sommaPrezzi_button_Click);
             // 
+            // salva_esterno_buton
+            // 
+            this.salva_esterno_buton.Location = new System.Drawing.Point(30, 385);
+            this.salva_esterno_buton.Name = "salva_esterno_buton";
+            this.salva_esterno_buton.Size = new System.Drawing.Size(81, 23);
+            this.salva_esterno_buton.TabIndex = 20;
+            this.salva_esterno_buton.Text = "Salva su file";
+            this.salva_esterno_buton.UseVisualStyleBackColor = true;
+            this.salva_esterno_buton.Click += new System.EventHandler(this.salva_buton_Click);
+            // 
+            // carica_button
+            // 
+            this.carica_button.Location = new System.Drawing.Point(143, 385);
+            this.carica_button.Name = "carica_button";
+            this.carica_button.Size = new System.Drawing.Size(81, 23);
+            this.carica_button.TabIndex = 21;
+            this.carica_button.Text = "Carica da file";
+            this.carica_button.UseVisualStyleBackColor = true;
+            this.carica_button.Click += new System.EventHandler(this.carica_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.carica_button);
+            this.Controls.Add(this.salva_esterno_buton);
             this.Controls.Add(this.sommaPrezzi_button);
             this.Controls.Add(this.sconto_label);
             this.Controls.Add(this.sconto_input);
@@ -278,6 +302,8 @@
         private System.Windows.Forms.TextBox sconto_input;
         private System.Windows.Forms.Label sconto_label;
         private System.Windows.Forms.Button sommaPrezzi_button;
+        private System.Windows.Forms.Button salva_esterno_buton;
+        private System.Windows.Forms.Button carica_button;
     }
 }
 

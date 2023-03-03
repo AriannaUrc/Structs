@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Structs
@@ -154,6 +155,48 @@ namespace Structs
         private void sommaPrezzi_button_Click(object sender, EventArgs e)
         {
             output.Items.Add("La somma dei prezzi è: "+SommaPrezzi().ToString());
+        }
+
+        private void salva_buton_Click(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream("dati.csv", FileMode.Truncate, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            for (int i = 0; i < dim; i++)
+            {
+                sw.WriteLine(p[i].nome + ";" + p[i].prezzo);
+            }
+            sw.Flush();
+            sw.Close();
+            fs.Close();
+        }
+
+        private void carica_button_Click(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader("dati.csv");
+            sr.BaseStream.Seek(0, SeekOrigin.Begin);
+
+
+            char limite=char.Parse(";");
+
+            string[] words = new string[2];
+
+            string str = sr.ReadLine();
+            dim = 0;
+
+
+            while (str != null)
+            {
+                words = str.Split(limite);
+                p[dim].nome = words[0];
+                p[dim].prezzo = float.Parse(words[1]);
+                dim++;
+                str = sr.ReadLine();
+            }
+
+            Console.ReadLine();
+            sr.Close();
+
+            Visualizza();
         }
     }
 }
