@@ -130,10 +130,18 @@ namespace Structs
 
         private void salva_button_Click(object sender, EventArgs e)
         {
-            p[dim].nome = nome.Text;
-            p[dim].prezzo = float.Parse(prezzo.Text);
-            dim++;
-            Visualizza();
+            if (nome.Text!=null^prezzo.Text!=null)
+            {
+                p[dim].nome = nome.Text;
+                p[dim].prezzo = float.Parse(prezzo.Text);
+                dim++;
+                Visualizza();
+            }
+            else
+            {
+                MessageBox.Show("Non sono stati inseriti sufficienti dati");
+            }
+            
         }
 
 
@@ -177,20 +185,35 @@ namespace Structs
 
         private void sconto_button_Click(object sender, EventArgs e)
         {
-            if (int.Parse(sconto_input.Text)>=0&& int.Parse(sconto_input.Text) <= 100)
+            if (dim > 0)
             {
-                Sconto();
-                Visualizza();
+                if (int.Parse(sconto_input.Text) >= 0 && int.Parse(sconto_input.Text) <= 100)
+                {
+                    Sconto();
+                    Visualizza();
+                }
+                else
+                {
+                    MessageBox.Show("Percentuale non accetttabile");
+                }
             }
             else
             {
-                MessageBox.Show("Percentuale non accetttabile");
+                MessageBox.Show("Non ci sono elementi");
             }
         }
 
         private void sommaPrezzi_button_Click(object sender, EventArgs e)
         {
-            output.Items.Add("La somma dei prezzi è: "+SommaPrezzi().ToString());
+            output.Items.Clear();
+            if (dim > 0)
+            {
+                output.Items.Add("La somma dei prezzi è: " + SommaPrezzi().ToString());
+            }
+            else
+            {
+                MessageBox.Show("Non ci sono elementi");
+            }
         }
 
         private void salva_buton_Click(object sender, EventArgs e)
@@ -238,20 +261,28 @@ namespace Structs
         private void prezzo_min_button_Click(object sender, EventArgs e)
         {
             int pos=PrezzoMin();
+            output.Items.Clear();
             if (dim > 0)
             {
-                output.Items.Clear();
                 output.Items.Add("Il prodotto con costo minore costa " + p[pos].prezzo.ToString() + "€ e si chiama " + p[pos].nome);
+            }
+            else
+            {
+                MessageBox.Show("Non ci sono elementi");
             }
         }
 
         private void prezzo_max_button_Click(object sender, EventArgs e)
         {
             int pos = PrezzoMax();
+            output.Items.Clear();
             if (dim > 0)
             {
-                output.Items.Clear();
                 output.Items.Add("Il prodotto con costo maggiore costa " + p[pos].prezzo.ToString() + "€ e si chiama " + p[pos].nome);
+            }
+            else
+            {
+                MessageBox.Show("Non ci sono elementi");
             }
         }
     }
