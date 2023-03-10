@@ -50,6 +50,8 @@
             this.sommaPrezzi_button = new System.Windows.Forms.Button();
             this.salva_esterno_buton = new System.Windows.Forms.Button();
             this.carica_button = new System.Windows.Forms.Button();
+            this.prezzo_min_button = new System.Windows.Forms.Button();
+            this.prezzo_max_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nome
@@ -245,11 +247,33 @@
             this.carica_button.UseVisualStyleBackColor = true;
             this.carica_button.Click += new System.EventHandler(this.carica_button_Click);
             // 
+            // prezzo_min_button
+            // 
+            this.prezzo_min_button.Location = new System.Drawing.Point(141, 289);
+            this.prezzo_min_button.Name = "prezzo_min_button";
+            this.prezzo_min_button.Size = new System.Drawing.Size(81, 23);
+            this.prezzo_min_button.TabIndex = 22;
+            this.prezzo_min_button.Text = "Prezzo Min";
+            this.prezzo_min_button.UseVisualStyleBackColor = true;
+            this.prezzo_min_button.Click += new System.EventHandler(this.prezzo_min_button_Click);
+            // 
+            // prezzo_max_button
+            // 
+            this.prezzo_max_button.Location = new System.Drawing.Point(247, 289);
+            this.prezzo_max_button.Name = "prezzo_max_button";
+            this.prezzo_max_button.Size = new System.Drawing.Size(81, 23);
+            this.prezzo_max_button.TabIndex = 23;
+            this.prezzo_max_button.Text = "Prezzo max";
+            this.prezzo_max_button.UseVisualStyleBackColor = true;
+            this.prezzo_max_button.Click += new System.EventHandler(this.prezzo_max_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.prezzo_max_button);
+            this.Controls.Add(this.prezzo_min_button);
             this.Controls.Add(this.carica_button);
             this.Controls.Add(this.salva_esterno_buton);
             this.Controls.Add(this.sommaPrezzi_button);
@@ -304,6 +328,8 @@
         private System.Windows.Forms.Button sommaPrezzi_button;
         private System.Windows.Forms.Button salva_esterno_buton;
         private System.Windows.Forms.Button carica_button;
+        private System.Windows.Forms.Button prezzo_min_button;
+        private System.Windows.Forms.Button prezzo_max_button;
     }
 }
 

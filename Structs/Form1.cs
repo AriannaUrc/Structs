@@ -77,6 +77,40 @@ namespace Structs
             return somma;
         }
 
+        public int PrezzoMin()
+        {
+            float prezzoMin = p[0].prezzo;
+            int prezzoMinPos = 0;
+
+            for (int i = 1; i < dim; i++)
+            {
+                if (p[i].prezzo < prezzoMin)
+                {
+                    prezzoMin = p[i].prezzo;
+                    prezzoMinPos = i;
+                }
+            }
+
+            return prezzoMinPos;
+        }
+
+        public int PrezzoMax()
+        {
+            float prezzoMax = 0;
+            int prezzoMaxPos = 0;
+
+            for (int i = 0; i < dim; i++)
+            {
+                if (p[i].prezzo > prezzoMax)
+                {
+                    prezzoMax = p[i].prezzo;
+                    prezzoMaxPos = i;
+                }
+            }
+
+            return prezzoMaxPos;
+        }
+
 
         public void Sconto()
         {
@@ -101,6 +135,8 @@ namespace Structs
             dim++;
             Visualizza();
         }
+
+
         private void cancella_button_Click(object sender, EventArgs e)
         {
             int indice = Ricerca(nomeDaCancellare_textbox.Text);
@@ -197,6 +233,26 @@ namespace Structs
             sr.Close();
 
             Visualizza();
+        }
+
+        private void prezzo_min_button_Click(object sender, EventArgs e)
+        {
+            int pos=PrezzoMin();
+            if (dim > 0)
+            {
+                output.Items.Clear();
+                output.Items.Add("Il prodotto con costo minore costa " + p[pos].prezzo.ToString() + "€ e si chiama " + p[pos].nome);
+            }
+        }
+
+        private void prezzo_max_button_Click(object sender, EventArgs e)
+        {
+            int pos = PrezzoMax();
+            if (dim > 0)
+            {
+                output.Items.Clear();
+                output.Items.Add("Il prodotto con costo maggiore costa " + p[pos].prezzo.ToString() + "€ e si chiama " + p[pos].nome);
+            }
         }
     }
 }
