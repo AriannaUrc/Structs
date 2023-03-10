@@ -71,7 +71,7 @@
             // nome_label
             // 
             this.nome_label.AutoSize = true;
-            this.nome_label.Location = new System.Drawing.Point(157, 26);
+            this.nome_label.Location = new System.Drawing.Point(169, 26);
             this.nome_label.Name = "nome_label";
             this.nome_label.Size = new System.Drawing.Size(35, 13);
             this.nome_label.TabIndex = 2;

@@ -18,6 +18,7 @@ namespace Structs
         {
             public string nome;
             public float prezzo;
+            public int quantita;
         }
 
 
@@ -39,8 +40,9 @@ namespace Structs
 
         public string ProdString(prodotto p)
         {
-            return "Nome: " + p.nome + "  Prezzo: " + p.prezzo.ToString();
+            return "Nome: " + p.nome + "  Prezzo: " + p.prezzo.ToString() + "  Quantità: " + p.quantita.ToString();
         }
+
         public void Visualizza()
         {
             output.Items.Clear();
@@ -111,6 +113,30 @@ namespace Structs
             return prezzoMaxPos;
         }
 
+        public void Crea()
+        {
+            
+            p[dim].nome = nome.Text;
+            p[dim].prezzo = float.Parse(prezzo.Text);
+            p[dim].quantita = 1;
+            dim++;
+        }
+
+        public bool ControlloDoppioni()
+        {
+            bool doppione=false;
+
+            for (int i = 0; i < dim; i++)
+            {
+                if (p[i].nome == nome.Text && p[i].prezzo == float.Parse(prezzo.Text))
+                {
+                    p[i].quantita++;
+                    doppione = true;
+                    Visualizza();
+                }
+            }
+            return doppione;
+        }
 
         public void Sconto()
         {
@@ -130,18 +156,11 @@ namespace Structs
 
         private void salva_button_Click(object sender, EventArgs e)
         {
-            if (nome.Text!=null^prezzo.Text!=null)
+            if (!ControlloDoppioni())
             {
-                p[dim].nome = nome.Text;
-                p[dim].prezzo = float.Parse(prezzo.Text);
-                dim++;
-                Visualizza();
+                Crea();
             }
-            else
-            {
-                MessageBox.Show("Non sono stati inseriti sufficienti dati");
-            }
-            
+            Visualizza();
         }
 
 
