@@ -22,13 +22,14 @@ namespace Structs
         }
 
 
-        public prodotto[] p= new prodotto[100];
+        public prodotto[] p;
         int dim;
 
         public Form1()
         {
             InitializeComponent();
             dim = 0;
+            prodotto[] p = new prodotto[100];
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -98,7 +99,7 @@ namespace Structs
 
         public int PrezzoMax()
         {
-            float prezzoMax = 0;
+            float prezzoMax = p[0].prezzo;
             int prezzoMaxPos = 0;
 
             for (int i = 0; i < dim; i++)
@@ -115,11 +116,13 @@ namespace Structs
 
         public void Crea()
         {
-            
-            p[dim].nome = nome.Text;
-            p[dim].prezzo = float.Parse(prezzo.Text);
-            p[dim].quantita = 1;
-            dim++;
+            if (!String.IsNullOrEmpty(nome.Text)&& !String.IsNullOrEmpty(prezzo.Text))
+            {
+                p[dim].nome = nome.Text;
+                p[dim].prezzo = float.Parse(prezzo.Text);
+                p[dim].quantita = 1;
+                dim++;
+            }
         }
 
         public bool ControlloDoppioni()
@@ -132,7 +135,6 @@ namespace Structs
                 {
                     p[i].quantita++;
                     doppione = true;
-                    Visualizza();
                 }
             }
             return doppione;
@@ -144,6 +146,42 @@ namespace Structs
             {
                 p[i].prezzo = p[i].prezzo*(100 - int.Parse(sconto_input.Text))/100;
             }
+        }
+
+        public void Cancellazione(int indice)
+        {
+            for (int i = 0; i < dim; i++)
+            {
+                p[i].prezzo = p[i].prezzo * (100 - int.Parse(sconto_input.Text)) / 100;
+            }
+        }
+
+        public void Modifica(int indice)
+        {
+            p[indice].nome = nuovoNome_textbox.Text;
+            p[indice].prezzo = float.Parse(nuovoPrezzo_textbox.Text);
+        }
+
+        public void Carica(char limite)
+        {
+            StreamReader sr = new StreamReader("dati.csv");
+
+            string[] words = new string[2];
+
+            string str = sr.ReadLine();
+            dim = 0;
+
+
+            while (str != null)
+            {
+                words = str.Split(limite);
+                p[dim].nome = words[0];
+                p[dim].prezzo = float.Parse(words[1]);
+                dim++;
+                str = sr.ReadLine();
+            }
+
+            sr.Close();
         }
 
 
@@ -169,13 +207,7 @@ namespace Structs
             int indice = Ricerca(nomeDaCancellare_textbox.Text);
             if (indice >= 0)
             {
-                for (int i = indice; i < dim-1; i++)
-                {
-                    p[indice].nome = p[indice+1].nome;
-                    p[indice].prezzo = p[indice+1].prezzo;
-                }
-                dim--;
-
+                Cancellazione(indice);
                 Visualizza();
             }
             else
@@ -191,8 +223,7 @@ namespace Structs
             int indice = Ricerca(nomeDaMod_textbox.Text);
             if ( indice >= 0)
             {
-                p[indice].nome = nuovoNome_textbox.Text;
-                p[indice].prezzo = float.Parse(nuovoPrezzo_textbox.Text);
+                Modifica(indice);
                 Visualizza();
             }
             else
@@ -237,51 +268,29 @@ namespace Structs
 
         private void salva_buton_Click(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream("dati.csv", FileMode.Truncate, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs);
+            StreamWriter sw = new StreamWriter("dati.csv", false);
             for (int i = 0; i < dim; i++)
             {
                 sw.WriteLine(p[i].nome + ";" + p[i].prezzo);
             }
-            sw.Flush();
             sw.Close();
-            fs.Close();
         }
 
         private void carica_button_Click(object sender, EventArgs e)
         {
-            StreamReader sr = new StreamReader("dati.csv");
-            sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            char limite = char.Parse(";");
 
-
-            char limite=char.Parse(";");
-
-            string[] words = new string[2];
-
-            string str = sr.ReadLine();
-            dim = 0;
-
-
-            while (str != null)
-            {
-                words = str.Split(limite);
-                p[dim].nome = words[0];
-                p[dim].prezzo = float.Parse(words[1]);
-                dim++;
-                str = sr.ReadLine();
-            }
-
-            sr.Close();
-
+            Carica(limite);
             Visualizza();
         }
 
         private void prezzo_min_button_Click(object sender, EventArgs e)
         {
-            int pos=PrezzoMin();
-            output.Items.Clear();
+            
             if (dim > 0)
             {
+                int pos = PrezzoMin();
+                output.Items.Clear();
                 output.Items.Add("Il prodotto con costo minore costa " + p[pos].prezzo.ToString() + "€ e si chiama " + p[pos].nome);
             }
             else
@@ -292,10 +301,10 @@ namespace Structs
 
         private void prezzo_max_button_Click(object sender, EventArgs e)
         {
-            int pos = PrezzoMax();
-            output.Items.Clear();
             if (dim > 0)
             {
+                int pos = PrezzoMax();
+                output.Items.Clear();
                 output.Items.Add("Il prodotto con costo maggiore costa " + p[pos].prezzo.ToString() + "€ e si chiama " + p[pos].nome);
             }
             else
