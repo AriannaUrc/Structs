@@ -271,7 +271,6 @@ namespace Structs
                 str = sr.ReadLine();
             }
 
-            Console.ReadLine();
             sr.Close();
 
             Visualizza();
