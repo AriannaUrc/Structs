@@ -162,11 +162,21 @@ namespace Structs
             p[indice].prezzo = float.Parse(nuovoPrezzo_textbox.Text);
         }
 
+        public void SalvaFile()
+        {
+            StreamWriter sw = new StreamWriter("dati.csv", false);
+            for (int i = 0; i < dim; i++)
+            {
+                sw.WriteLine(p[i].nome + ";" + p[i].prezzo + ";" + p[i].quantita);
+            }
+            sw.Close();
+        }
+
         public void Carica(char limite)
         {
             StreamReader sr = new StreamReader("dati.csv");
 
-            string[] words = new string[2];
+            string[] words = new string[3];
 
             string str = sr.ReadLine();
             dim = 0;
@@ -177,6 +187,7 @@ namespace Structs
                 words = str.Split(limite);
                 p[dim].nome = words[0];
                 p[dim].prezzo = float.Parse(words[1]);
+                p[dim].quantita = int.Parse(words[2]);
                 dim++;
                 str = sr.ReadLine();
             }
@@ -268,12 +279,7 @@ namespace Structs
 
         private void salva_buton_Click(object sender, EventArgs e)
         {
-            StreamWriter sw = new StreamWriter("dati.csv", false);
-            for (int i = 0; i < dim; i++)
-            {
-                sw.WriteLine(p[i].nome + ";" + p[i].prezzo);
-            }
-            sw.Close();
+            SalvaFile();
         }
 
         private void carica_button_Click(object sender, EventArgs e)
